@@ -6,21 +6,26 @@
 #include <iostream>
 #include <vector>
 
-void function1(int const* x, float const *d)
-{
-    std::cout << *x  << " " << *d << std::endl;
+void function1(int const *a, float const *b, char const * c, bool const * d) {
+
+	std::cout << *a << " " << *b << " " << *c << " " << *d << std::endl;
 }
 
-int main()
-{
-    vfunct fptr = reinterpret_cast<vfunct>(function1);
+int main() {
 
-    int x = 3;
-    float d = 2.25667f;
+	vfunct fptr = reinterpret_cast<vfunct>(function1);
 
-    std::vector<void*> vector { &x, &d };
+	int   a = 3;
+	float b = 2.25667f;
+	char  c = 'a';
+	bool  d = true;
 
-    CallVFunctWithArr(fptr, vector);
+	std::vector<void *> vector{&a,
+	                           &b,
+	                           &c,
+	                           &d};
 
-    return 0;
+	CallVFunctWithArr(fptr, vector);
+
+	return 0;
 }
