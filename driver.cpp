@@ -20,7 +20,7 @@ int main()
 
     std::vector<void*> vector { &x, &d };
 
-    fptr(vector[0], vector[1]);
+    CallVFunctWithArr(fptr, vector);
 
     return 0;
 }
